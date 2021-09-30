@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="146a77cf-d117-4398-b581-33a2ad914cb6" name="Changes" comment="fix name">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/totalopenstation.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/totalopenstation_.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_sokkia_sdr33_polar.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_sokkia_sdr33_polar.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="5458fade-6e24-407f-b44e-a07a0a68bad4" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/totalopenstation/models/__init__.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/totalopenstation/models/sokkia_rku_630.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/totalopenstation/formats/__init__.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/totalopenstation/output/__init__.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/totalopenstation/models/topcon_gpt_3005.py" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectId" id="1yZy7YfLLB8DcOTAkmqKy56iZdb" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests/test_sokkia_sdr33_polar.py" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="ReaderModeSettings">
+    <option name="enabled" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\OSGeo4W\apps\Python39\Lib\site-packages\totalopenstation-0.5.2-py3.9.egg\totalopenstation_\tests" />
+      <recent name="C:\OSGeo4W\apps\Python39\Lib\site-packages\totalopenstation-0.5.2-py3.9.egg\totalopenstation\sample_data" />
+      <recent name="C:\OSGeo4W\apps\Python39\Lib\site-packages\totalopenstation-0.5.2-py3.9.egg\totalopenstation\totalopenstation\formats" />
+      <recent name="C:\OSGeo4W\apps\Python39\Lib\site-packages\totalopenstation-0.5.2-py3.9.egg\totalopenstation\totalopenstation\models" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="test_sokkia_sdr33_polar" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="totalopenstation_" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\OSGeo4W\apps\Python39\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/test_sokkia_sdr33_polar.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\Utente\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="146a77cf-d117-4398-b581-33a2ad914cb6" name="Changes" comment="" />
+      <created>1632473237609</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1632473237609</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Add sokkia sdr33 polar format">
+      <created>1632476108140</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1632476108140</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add sokkia rku 630 model">
+      <created>1632476130080</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1632476130080</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add sokkia rku 630 model">
+      <created>1632476145146</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1632476145146</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add sokkia rku 630 model">
+      <created>1632476158123</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1632476158123</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fix bug topcon gpt 3005">
+      <created>1632476187272</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1632476187272</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add sokkia sdr33 polar format">
+      <created>1632476258239</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1632476258239</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add sokkia sdr33 polar format example">
+      <created>1632477213860</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1632477213860</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add sokkia sdr33 polar format example">
+      <created>1632477228371</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1632477228371</updated>
+    </task>
+    <task id="LOCAL-00009" summary="add information into the doc about sdr33 O7TP">
+      <created>1632477409548</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1632477409548</updated>
+    </task>
+    <task id="LOCAL-00010" summary="add test_sokkia_sdr33_polar.py">
+      <created>1632491410628</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1632491410628</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add test_sokkia_sdr33_polar.py">
+      <created>1632491459185</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1632491459185</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix bug test_sokkia_sdr33_polar.py">
+      <created>1632493468000</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1632493468000</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fix bug test_sokkia_sdr33_polar.py">
+      <created>1632494099018</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1632494099018</updated>
+    </task>
+    <task id="LOCAL-00014" summary="fix name">
+      <created>1632494126794</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1632494126794</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="f88b3e1e-ad60-4e63-919a-491e0e5b693b">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="f88b3e1e-ad60-4e63-919a-491e0e5b693b" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Add sokkia sdr33 polar format" />
+    <MESSAGE value="Add sokkia rku 630 model" />
+    <MESSAGE value="fix bug topcon gpt 3005" />
+    <MESSAGE value="add sokkia sdr33 polar format" />
+    <MESSAGE value="add sokkia sdr33 polar format example" />
+    <MESSAGE value="add information into the doc about sdr33 O7TP" />
+    <MESSAGE value="add test_sokkia_sdr33_polar.py" />
+    <MESSAGE value="fix bug test_sokkia_sdr33_polar.py" />
+    <MESSAGE value="fix name" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix name" />
+  </component>
+</project>

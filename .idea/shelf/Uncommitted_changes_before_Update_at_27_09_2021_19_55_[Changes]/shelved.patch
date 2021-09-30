@@ -1,0 +1,23 @@
+Index: ../totalopenstation_/tests/test_sokkia_sdr33_polar.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import unittest\r\n\r\nimport pytest\r\n\r\nfrom totalopenstation.formats.sokkia_sdr33_polar import FormatParser\r\n\r\nfrom . import BaseTestOutput\r\n\r\n\r\nclass TestSokkiaParser(unittest.TestCase):\r\n\r\n    def setUp(self):\r\n        with open('sample_data/sokkia_sdr33_polar.tops') as testdata:\r\n            self.fp = FormatParser(testdata.read())\r\n\r\n    def test_point(self):\r\n        self.assertAlmostEqual(self.fp.points[0].geometry.coords[0][1], 0.000)\r\n        self.assertAlmostEqual(self.fp.points[0].geometry.y, 0.000)\r\n        self.assertAlmostEqual(self.fp.points[0].geometry.coords[0][0], 0.000)\r\n        self.assertAlmostEqual(self.fp.points[0].geometry.coords[0][2], 0.000)\r\n\r\n    def test_feature(self, STZTEMP=None):\r\n        self.assertEqual(self.fp.points[0].id, STZTEMP)\r\n        self.assertEqual(self.fp.points[0].desc, 'STZTEMP')\r\n        self.assertEqual(self.fp.points[1].desc, 'STZTEMP')\r\n\r\n    def test_linestring(self):\r\n        self.ls = self.fp.build_linestring()\r\n        self.assertAlmostEqual(self.ls.coords[0][0], 0.0)\r\n\r\n\r\nclass TestSokkiaOutput(BaseTestOutput):\r\n\r\n    @pytest.fixture\r\n    def setup(self):\r\n        with open('sample_data/sokkia_sdr33_polar.tops') as testdata:\r\n            self.fp = FormatParser(testdata.read())\r\n
+===================================================================
+diff --git a/../totalopenstation_/tests/test_sokkia_sdr33_polar.py b/../totalopenstation_/tests/test_sokkia_sdr33_polar.py
+--- a/../totalopenstation_/tests/test_sokkia_sdr33_polar.py	
++++ b/../totalopenstation_/tests/test_sokkia_sdr33_polar.py	
+@@ -19,10 +19,10 @@
+         self.assertAlmostEqual(self.fp.points[0].geometry.coords[0][0], 0.000)
+         self.assertAlmostEqual(self.fp.points[0].geometry.coords[0][2], 0.000)
+ 
+-    def test_feature(self, STZTEMP=None):
+-        self.assertEqual(self.fp.points[0].id, STZTEMP)
+-        self.assertEqual(self.fp.points[0].desc, 'STZTEMP')
+-        self.assertEqual(self.fp.points[1].desc, 'STZTEMP')
++    def test_feature(self):
++        self.assertEqual(self.fp.points[0].id, 'ST')
++        self.assertEqual(self.fp.points[0].desc, 'ST')
++        self.assertEqual(self.fp.points[1].desc, 'ST')
+ 
+     def test_linestring(self):
+         self.ls = self.fp.build_linestring()
