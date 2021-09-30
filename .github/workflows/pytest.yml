@@ -5,7 +5,7 @@ name: pytest
 
 on:
   push:
-    branches: [ main ]
+    branches: [ fix_format ]
   pull_request:
     branches: [ main ]
 
