@@ -2,7 +2,7 @@ name: pytest
 
 on:
   push:
-    branches: [ fix_format ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 
