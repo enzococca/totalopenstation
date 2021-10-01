@@ -20,9 +20,9 @@ class TestTrimbleDCParser(unittest.TestCase):
         self.assertAlmostEqual(self.fp.points[0].geometry.coords[0][2], 15.5560000000000)
 
     def test_feature(self):
-        self.assertEqual(self.fp.points[0].id, 'CAPIT')
-        self.assertEqual(self.fp.points[0].desc, 'ctrl')
-        self.assertEqual(self.fp.points[1].desc, 'ctrl')
+        self.assertEqual(self.fp.points[0].id, 'CAPIT           ')
+        self.assertEqual(self.fp.points[0].desc, 'ctrl1')
+        self.assertEqual(self.fp.points[1].desc, 'ctrl2')
 
     def test_linestring(self):
         self.ls = self.fp.build_linestring()
