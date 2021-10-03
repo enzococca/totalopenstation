@@ -92,7 +92,18 @@ class Parser:
         self.data = data
 
     def value(self):
+        """Action for finding which parts of the source file are points.
+
+        This method **must** be overridden in the child class
+        to have a working parser.
+        
+        Returns:
+            A boolean
+        """
+        
         pass
+    
+    
     def is_point(self, line):
         """Action for finding which parts of the source file are points.
 
@@ -104,7 +115,8 @@ class Parser:
         """
 
         pass
-
+   
+    
     def get_point(self, line):
         """Action for getting points from source file.
 
@@ -116,15 +128,7 @@ class Parser:
 
         pass
 
-    def split_points_m(self):
-        """Action for splitting points.
-
-        Defaults to ``splitlines()`` because most formats have one
-        point per line.
-
-        Override this method if the format is different."""
-
-        return self.data.splitlines()
+    
     
     def split_points(self):
         """Action for splitting points.
@@ -202,6 +206,7 @@ BUILTIN_INPUT_FORMATS = {
     'nikon_raw_v200': ('nikon_raw_v200', 'FormatParser','Nikon RAW V2.00'),
     'sokkia_sdr33': ('sokkia_sdr33', 'FormatParser', 'Sokkia SDR33'),
     'topcon_gts': ('topcon_gts', 'FormatParser', 'Topcon GTS'),
+    'topcon_gpt': ('topcon_gpt', 'FormatParser', 'Topcon GPT'),
     'trimble_are': ('trimble_are', 'FormatParser', 'Trimble AREA'),
     'trimble_dc': ('trimble_dc', 'FormatParser', 'Trimble DC'),
     'zeiss_r5': ('zeiss_r5', 'FormatParser', 'Zeiss R5'),
