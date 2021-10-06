@@ -36,6 +36,4 @@ class ModelConnector(Connector):
             baudrate=9600,
             bytesize=8,
             stopbits=1,
-            parity='N',
-            rtscts=True,
-            dsrdtr=True)
+            parity='N')
