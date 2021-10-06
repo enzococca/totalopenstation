@@ -121,4 +121,5 @@ BUILTIN_MODELS = {
     'topcon_gpt_3005': ('topcon_gpt_3005', 'ModelConnector', 'Topcon GPT 3005'),
     'sokkia_rku_630': ('sokkia_rku_630', 'ModelConnector', 'Sokkia RKU 630'),
     'custom': ('custom', 'CustomConnector', 'Custom/Unknown'),
+    'custom_bluetooth': ('custom_bluetooth', 'ModelConnector', 'Custom/Bluetooth'),
     }
