@@ -38,4 +38,4 @@ class ModelConnector(Connector):
             stopbits=1,
             parity='N',
             rtscts=True,
-            dsrdtr=True)
+            dsrdtr=False)
