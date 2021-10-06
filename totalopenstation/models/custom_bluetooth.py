@@ -37,5 +37,6 @@ class ModelConnector(Connector):
             bytesize=8,
             stopbits=1,
             parity='N',
-            rtscts=True,
-            dsrdtr=False)
+            xonxoff=True,
+            rtscts=False,
+            dsrdtr=True)
