@@ -1,7 +1,7 @@
 import unittest
 
 from totalopenstation.formats import Feature, Point
-from totalopenstation.output.tops_pyarchinit import OutputFormat
+from totalopenstation.output.tops_pyarchinit_us import OutputFormat
 
 class TestPyarchinitOutput(unittest.TestCase):
 

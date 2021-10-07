@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-__all__ = ["tops_csv", "tops_dxf", "tops_dat", "tops_sql", "tops_txt", "tops_geojson", "tops_landxml","tops_pyarchinit"]
+__all__ = ["tops_csv", "tops_dxf", "tops_dat", "tops_sql", "tops_txt", "tops_geojson", "tops_landxml","tops_pyarchinit_us","tops_pyarchinit_rif","tops_pyarchinit_sample"]
 
 class Builder:
 
@@ -33,7 +33,9 @@ class Builder:
 
 BUILTIN_OUTPUT_FORMATS = {
     'dxf': ('tops_dxf', 'OutputFormat', 'DXF'),    
-    'csv pyarchinit': ('tops_pyarchinit', 'OutputFormat', 'CSV 2'),
+    'csv pyarchinit_us': ('tops_pyarchinit_us', 'OutputFormat', 'CSV 2'),
+    'csv pyarchinit_rif': ('tops_pyarchinit_rif', 'OutputFormat', 'CSV 3'),
+    'csv pyarchinit_sample': ('tops_pyarchinit_sample', 'OutputFormat', 'CSV 4'),
     'csv': ('tops_csv', 'OutputFormat', 'CSV 1'),
     'sql': ('tops_sql', 'OutputFormat', 'OGC-SQL'),
     'dat': ('tops_dat', 'OutputFormat', 'DAT'),
