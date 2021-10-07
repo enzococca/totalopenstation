@@ -37,7 +37,7 @@ class OutputFormat(Builder):
     def __init__(self, data):
         self.data = data
         self.output = io.StringIO()
-        fieldnames = ['sito_q', 'area_q', 'us_q','unita_misu_q','quota_q','x','y']
+        fieldnames = ['gid','sito_q', 'area_q', 'us_q','unita_misu_q','quota_q','x','y']
         self.writer = csv.DictWriter(self.output, quoting=csv.QUOTE_NONNUMERIC, fieldnames=fieldnames)
         self.writer.writeheader()
 
