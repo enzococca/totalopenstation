@@ -211,6 +211,7 @@ BUILTIN_INPUT_FORMATS = {
     'trimble_dc': ('trimble_dc', 'FormatParser', 'Trimble DC'),
     'zeiss_r5': ('zeiss_r5', 'FormatParser', 'Zeiss R5'),
     'zeiss_rec_500': ('zeiss_rec_500', 'FormatParser', 'Zeiss REC 500'),
+    'geomax_gsi': ('geomax_gsi', 'FormatParser', 'Geomax GSI'),
     }
 
 UNITS_CIRCLE = {

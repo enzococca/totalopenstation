@@ -121,6 +121,7 @@ BUILTIN_MODELS = {
     'trimble': ('trimble', 'ModelConnector', 'Trimble'), 
     'topcon_gpt_3005': ('topcon_gpt_3005', 'ModelConnector', 'Topcon GPT 3005'),
     'sokkia_rku_630': ('sokkia_rku_630', 'ModelConnector', 'Sokkia RKU 630'),
+    'geomax': ('geomax', 'ModelConnector', 'Geomax'),
     'custom': ('custom', 'CustomConnector', 'Custom/Unknown'),
     'custom_bluetooth': ('custom_bluetooth', 'ModelConnector', 'Custom/Bluetooth'),
     }
