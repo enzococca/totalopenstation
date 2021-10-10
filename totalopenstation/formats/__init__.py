@@ -206,7 +206,7 @@ BUILTIN_INPUT_FORMATS = {
     'nikon_raw_v200': ('nikon_raw_v200', 'FormatParser','Nikon RAW V2.00'),
     'sokkia_sdr33': ('sokkia_sdr33', 'FormatParser', 'Sokkia SDR33'),
     'topcon_gts': ('topcon_gts', 'FormatParser', 'Topcon GTS'),
-    'topcon_gpt': ('topcon_gpt', 'FormatParser', 'Topcon GPT'),
+    'topcon_gt7': ('topcon_gt7', 'FormatParser', 'Topcon GT7'),
     'trimble_are': ('trimble_are', 'FormatParser', 'Trimble AREA'),
     'trimble_dc': ('trimble_dc', 'FormatParser', 'Trimble DC'),
     'zeiss_r5': ('zeiss_r5', 'FormatParser', 'Zeiss R5'),
