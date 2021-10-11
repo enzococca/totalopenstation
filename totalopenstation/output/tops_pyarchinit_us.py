@@ -37,7 +37,7 @@ class OutputFormat(Builder):
     def __init__(self, data):
         self.data = data
         self.output = io.StringIO()
-        fieldnames = ['gid','sito_q', 'area_q', 'us_q','unita_misu_q','quota_q','x','y']
+        fieldnames = ['gid','sito_q', 'area_q', 'point_name','unita_misu_q','quota_q','x','y']
         self.writer = csv.DictWriter(self.output, quoting=csv.QUOTE_NONNUMERIC, fieldnames=fieldnames)
         self.writer.writeheader()
 
@@ -46,7 +46,7 @@ class OutputFormat(Builder):
         for feature in self.data:
             row = {
                 #'gid': feature.id,
-                'us_q': feature.desc,
+                'area_q': feature.desc,
                 'x': feature.geometry.x,
                 'y': feature.geometry.y
             }
@@ -56,7 +56,9 @@ class OutputFormat(Builder):
             except ValueError:
                 row['quota_q'] = ''
 
-            
+            # a few cases with simple yes/no logic
+            for prop in ['point_name']:
+                row[prop] = feature.properties.get(prop, '')  # empty string as default value
 
             self.writer.writerow(row)
 
