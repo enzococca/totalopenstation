@@ -49,8 +49,8 @@ class Connector(serial.Serial, Thread):
     '''
 
     def __init__(self, port=None, baudrate=9600, bytesize=8, parity='N',
-                stopbits=1, timeout=None, xonxoff=False, rtscts=False,
-                writeTimeout=None, dsrdtr=False):
+                stopbits=1, timeout=None, xonxoff=0, rtscts=0,
+                writeTimeout=None, dsrdtr=None):
 
         self.upref = UserPrefs()
         self.sleeptime = float(self.upref.getvalue('sleeptime'))
