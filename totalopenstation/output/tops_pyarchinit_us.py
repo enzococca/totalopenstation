@@ -46,7 +46,7 @@ class OutputFormat(Builder):
         for feature in self.data:
             row = {
                 #'gid': feature.id,
-                'area_q': feature.desc,
+                #'area_q': feature.desc,
                 'x': feature.geometry.x,
                 'y': feature.geometry.y
             }
