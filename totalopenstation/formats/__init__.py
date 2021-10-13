@@ -212,7 +212,8 @@ BUILTIN_INPUT_FORMATS = {
     'zeiss_r5': ('zeiss_r5', 'FormatParser', 'Zeiss R5'),
     'zeiss_rec_500': ('zeiss_rec_500', 'FormatParser', 'Zeiss REC 500'),
     'geomax_gsi': ('geomax_gsi', 'FormatParser', 'Geomax GSI'),
-    'geomax_txt': ('geomax_txt', 'FormatParser', 'Geomax TXT')
+    'geomax_txt': ('geomax_txt', 'FormatParser', 'Geomax TXT'),
+    'topcon_ascii': ('topcon_ascii', 'FormatParser', 'Topcon ASCII')
     }
 
 UNITS_CIRCLE = {
