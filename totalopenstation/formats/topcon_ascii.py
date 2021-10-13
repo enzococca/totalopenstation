@@ -39,19 +39,19 @@ class FormatParser(Parser):
         for x in line.splitlines():
             id.append(x.split(',')[0])        
             desc.append(x.split(',')[4])        
-            xx.append(x.split(',')[1])
-            yy.append(x.split(',')[2])
+            yy.append(x.split(',')[1])
+            xx.append(x.split(',')[2])
             zz.append(x.split(',')[3])
         try:    
             
             
             id = id[0]
             desc = desc[0]
-            y = xx[0]
-            x =yy[0]
+            x = xx[0]
+            y =yy[0]
             z = zz[0]
             point = Point(x, y, z)
-            feature = Feature(point,desc=desc,id=id)
+            feature = Feature(point,desc=id,point_name=desc)
             return feature
         except Exception as e:
             print(e)
