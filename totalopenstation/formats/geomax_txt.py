@@ -31,17 +31,25 @@ class FormatParser(Parser):
     
     def get_point(self, line):
         
-        line = line.replace(',','          ')
-
+        id=[]
+        desc=[]
+        xx=[]
+        yy=[]
+        zz=[]
+        for x in line.splitlines():
+            id.append(x.split(',')[0])        
+            desc.append(x.split(',')[4])        
+            xx.append(x.split(',')[1])
+            yy.append(x.split(',')[2])
+            zz.append(x.split(',')[3])
         try:    
             
-            id = str(line[0:14])
-            desc= str(line[0:14])
-            y = float(line[14:30])  # Northing
-            x = float(line[30:46])   # Easting
-            z = float(line[46:-1]) # Elevation
-                   
             
+            id = id[0]
+            desc = desc[0]
+            x = xx[0]
+            y =yy[0]
+            z = zz[0]
             point = Point(x, y, z)
             feature = Feature(point,desc=desc,id=id)
             return feature
