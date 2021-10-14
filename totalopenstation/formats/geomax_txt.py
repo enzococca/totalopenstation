@@ -51,7 +51,7 @@ class FormatParser(Parser):
             y =yy[0]
             z = zz[0]
             point = Point(x, y, z)
-            feature = Feature(point,desc=desc,id=id)
+            feature = Feature(point,desc=id,point_name=desc)
             return feature
         except Exception as e:
             print(e)
