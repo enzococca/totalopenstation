@@ -174,7 +174,7 @@ class FormatParser:
                 except IndexError:
                     attrib = []
                 p = PolarPoint(angle_unit=angle_unit,
-                               z_angle_type='v',
+                               z_angle_type='z',
                                dist_type='s',
                                dist=dist,
                                angle=angle,
