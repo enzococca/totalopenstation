@@ -1,0 +1,119 @@
+Index: totalopenstation/formats/__init__.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># -*- coding: utf-8 -*-\r\n# filename: formats/__init__.py\r\n# Copyright 2008-2010 Stefano Costa <steko@iosa.it>\r\n# Copyright 2008 Luca Bianconi <luxetluc@yahoo.it>\r\n# Copyright 2015-2016 Damien Gaignon <damien.gaignon@gmail.com>\r\n\r\n# This file is part of Total Open Station.\r\n\r\n# Total Open Station is free software: you can redistribute it and/or\r\n# modify it under the terms of the GNU General Public License as\r\n# published by the Free Software Foundation, either version 3 of the\r\n# License, or (at your option) any later version.\r\n\r\n# Total Open Station is distributed in the hope that it will be\r\n# useful, but WITHOUT ANY WARRANTY; without even the implied warranty\r\n# of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU\r\n# General Public License for more details.\r\n\r\n# You should have received a copy of the GNU General Public License\r\n# along with Total Open Station.  If not, see\r\n# <http://www.gnu.org/licenses/>.\r\n\r\nimport logging\r\n\r\nfrom pygeoif import geometry as g\r\nfrom math import pi\r\n\r\n\r\nlogger = logging.getLogger(__name__).addHandler(logging.NullHandler())\r\n\r\nclass Point(g.Point):\r\n    pass\r\n\r\n\r\nclass LineString(g.LineString):\r\n    pass\r\n\r\n\r\nclass Feature(g.Feature):\r\n    '''A GeoJSON-like Feature object.'''\r\n\r\n    def __init__(self, geom, desc, id=None, **properties):\r\n        g.Feature.__init__(self, geom, properties, feature_id=id)\r\n        self.properties['desc'] = desc\r\n\r\n    @g.Feature.geometry.setter\r\n    def geometry(self, value):\r\n        '''Set the geometry attribute.\r\n\r\n        By default, geometry property return the geometry value.\r\n        '''\r\n\r\n        self._geometry = value\r\n\r\n    @property\r\n    def desc(self):\r\n        '''Return the desc property\r\n        '''\r\n\r\n        return self.properties['desc']\r\n\r\n    @property\r\n    def point_name(self):\r\n        '''Return the point_name property\r\n        '''\r\n\r\n        return self.properties['point_name']\r\n\r\n\r\nclass FeatureCollection(g.FeatureCollection):\r\n    pass\r\n\r\n\r\nclass Parser:\r\n    '''Parses a *single* string of raw data.\r\n\r\n    This means that if you plan to load data from a file you have to\r\n    pass the output of open(file).read() to this class.\r\n\r\n    Args:\r\n        data (str): A string representing the file to be parsed.\r\n            \r\n    Attributes:\r\n        data (str): A string representing the file to be parsed **could**\r\n            be overridden by the init method.\r\n    '''\r\n\r\n    def __init__(self, data):\r\n        \"\"\"Init method which **should** be overridden in the child class\r\n        to have a working parser.\"\"\"\r\n\r\n        self.data = data\r\n\r\n    def value(self):\r\n        \"\"\"Action for finding which parts of the source file are points.\r\n\r\n        This method **must** be overridden in the child class\r\n        to have a working parser.\r\n        \r\n        Returns:\r\n            A boolean\r\n        \"\"\"\r\n        \r\n        pass\r\n    \r\n    \r\n    def is_point(self, line):\r\n        \"\"\"Action for finding which parts of the source file are points.\r\n\r\n        This method **must** be overridden in the child class\r\n        to have a working parser.\r\n        \r\n        Returns:\r\n            A boolean\r\n        \"\"\"\r\n\r\n        pass\r\n   \r\n    \r\n    def get_point(self, line):\r\n        \"\"\"Action for getting points from source file.\r\n\r\n        This method **must** be overridden in the child class\r\n        to have a working parser.\r\n        \r\n        Returns:\r\n            A :class:`formats.Feature` object.\"\"\"\r\n\r\n        pass\r\n\r\n    \r\n    \r\n    def split_points(self):\r\n        \"\"\"Action for splitting points.\r\n\r\n        Defaults to ``splitlines()`` because most formats have one\r\n        point per line.\r\n\r\n        Override this method if the format is different.\"\"\"\r\n\r\n        return self.data.splitlines()\r\n\r\n    def build_linestring(self):\r\n        '''Join all Point objects into a LineString.\r\n        \r\n        Returns:\r\n            A :class:`formats.LineString` object.\r\n        '''\r\n\r\n        return LineString([f.geometry for f in self.points])\r\n\r\n    @property\r\n    def points(self):\r\n        \"\"\"Action for parsing a source file and for finding points.\r\n\r\n        This method **could** be overridden in the child class\r\n        to have a working parser.\r\n        \r\n        Returns:\r\n            A list of GeoJSON-like Feature object representing points coordinates.\r\n        \"\"\"\r\n\r\n\r\n        self.d = self.split_points()\r\n\r\n        valid_lines = filter(self.is_point, self.d)\r\n        fg_lines = map(self.get_point, valid_lines)\r\n\r\n        return [p for p in fg_lines if p is not None]\r\n\r\n    @property\r\n    def raw_line(self):\r\n        \"\"\"Action for parsing a source file and for retrieving raw data.\r\n\r\n        This method **must** be overridden in the child class\r\n        to have a working parser.\r\n        \r\n        Returns:\r\n            A list of GeoJSON-like Feature object representing\r\n            representing raw data i.e. polar coordinates and other\r\n            informations.\r\n        \"\"\"\r\n\r\n        pass\r\n\r\n\r\ndef check_coordorder(coordorder):\r\n    '''Check if coordinates order is valid.\r\n\r\n    Args:\r\n        coordorder (str): A string representing the type of coordinates i.e.\r\n                NEZ or ENZ.\r\n    '''\r\n\r\n    if any((coordorder == v for v in COORDINATE_ORDER)):\r\n        return coordorder\r\n    else:\r\n        logger.info('Invalid coordinate order')\r\n\r\nBUILTIN_INPUT_FORMATS = {\r\n    'carlson_rw5': ('carlson_rw5', 'FormatParser', 'Carlson RW5'),\r\n    'landxml': ('landxml', 'FormatParser', 'LandXML'),\r\n    'leica_gsi': ('leica_gsi', 'FormatParser', 'Leica GSI'),\r\n    'leica_tcr_705': ('leica_tcr_705', 'FormatParser', 'Leica TCR 705'),\r\n    'leica_tcr_1205': ('leica_tcr_1205', 'FormatParser', 'Leica TCR 1205'),\r\n    'nikon_raw_v200': ('nikon_raw_v200', 'FormatParser','Nikon RAW V2.00'),\r\n    'sokkia_sdr33': ('sokkia_sdr33', 'FormatParser', 'Sokkia SDR33'),\r\n    'topcon_gts': ('topcon_gts', 'FormatParser', 'Topcon GTS'),\r\n    'topcon_gpt': ('topcon_gpt', 'FormatParser', 'Topcon GPT'),\r\n    'trimble_are': ('trimble_are', 'FormatParser', 'Trimble AREA'),\r\n    'trimble_dc': ('trimble_dc', 'FormatParser', 'Trimble DC'),\r\n    'zeiss_r5': ('zeiss_r5', 'FormatParser', 'Zeiss R5'),\r\n    'zeiss_rec_500': ('zeiss_rec_500', 'FormatParser', 'Zeiss REC 500'),\r\n    'geomax_gsi': ('geomax_gsi', 'FormatParser', 'Geomax GSI'),\r\n    'geomax_txt': ('geomax_txt', 'FormatParser', 'Geomax TXT')\r\n    }\r\n\r\nUNITS_CIRCLE = {\r\n    'dms': 360,\r\n    'deg': 360,\r\n    'gon': 400,\r\n    'mil': 6400,\r\n    'rad': 2 * pi,\r\n    'grads': 400\r\n    }\r\n\r\nUNKNOWN_STATION = Point(10000, 10000, 100)\r\nUNKNOWN_POINT = Point(-1, -1, -1)\r\n\r\nCOORDINATE_ORDER = ('NEZ', 'ENZ')\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/totalopenstation/formats/__init__.py b/totalopenstation/formats/__init__.py
+--- a/totalopenstation/formats/__init__.py	(revision 4f44d3d509efb00eda2e09bac09ddb3d1b656724)
++++ b/totalopenstation/formats/__init__.py	(date 1633882040649)
+@@ -206,7 +206,7 @@
+     'nikon_raw_v200': ('nikon_raw_v200', 'FormatParser','Nikon RAW V2.00'),
+     'sokkia_sdr33': ('sokkia_sdr33', 'FormatParser', 'Sokkia SDR33'),
+     'topcon_gts': ('topcon_gts', 'FormatParser', 'Topcon GTS'),
+-    'topcon_gpt': ('topcon_gpt', 'FormatParser', 'Topcon GPT'),
++    'topcon_gt7': ('topcon_gt7', 'FormatParser', 'Topcon GT7'),
+     'trimble_are': ('trimble_are', 'FormatParser', 'Trimble AREA'),
+     'trimble_dc': ('trimble_dc', 'FormatParser', 'Trimble DC'),
+     'zeiss_r5': ('zeiss_r5', 'FormatParser', 'Zeiss R5'),
+Index: totalopenstation/formats/topcon_gpt.py
+===================================================================
+diff --git a/totalopenstation/formats/topcon_gpt.py b/totalopenstation/formats/topcon_gpt.py
+deleted file mode 100644
+--- a/totalopenstation/formats/topcon_gpt.py	(revision 4f44d3d509efb00eda2e09bac09ddb3d1b656724)
++++ /dev/null	(revision 4f44d3d509efb00eda2e09bac09ddb3d1b656724)
+@@ -1,52 +0,0 @@
+-# -*- coding: utf-8 -*-
+-# filename: formats/topcon_gts.py
+-# Copyright 2021 ENZO COCCA <enzo.ccc@gmail.com>
+-
+-# This file is part of Total Open Station.
+-#
+-# Total Open Station is free software: you can redistribute it and/or
+-# modify it under the terms of the GNU General Public License as
+-# published by the Free Software Foundation, either version 3 of the
+-# License, or (at your option) any later version.
+-#
+-# Total Open Station is distributed in the hope that it will be
+-# useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+-# of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+-# General Public License for more details.
+-#
+-# You should have received a copy of the GNU General Public License
+-# along with Total Open Station.  If not, see
+-# <http://www.gnu.org/licenses/>.
+-
+-from . import Feature, Parser, Point
+-
+-
+-class FormatParser(Parser):
+-    
+-   
+-    def is_point(self, line) :
+-        if str("SD") in line:
+-            return True
+-        else:
+-            return False
+-            
+-    
+-    def get_point(self, line):
+-        
+-        line = line.replace(',','     ')
+-       
+-        try:    
+-            
+-            id = str(line[0:2])
+-            desc= str(line[0:2])
+-            y = float(line[8:21])  # Northing
+-            x = float(line[21:29])   # Easting
+-            z = float(line[29:-1]) # Elevation
+-                   
+-            
+-            point = Point(x, y, z)
+-            feature = Feature(point,desc=desc,id=id)
+-            return feature
+-        except Exception as e:
+-            print(e)
+-    
+\ No newline at end of file
+Index: .idea/inspectionProfiles/Project_Default.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/inspectionProfiles/Project_Default.xml b/.idea/inspectionProfiles/Project_Default.xml
+new file mode 100644
+--- /dev/null	(date 1633446102147)
++++ b/.idea/inspectionProfiles/Project_Default.xml	(date 1633446102147)
+@@ -0,0 +1,12 @@
++<component name="InspectionProjectProfileManager">
++  <profile version="1.0">
++    <option name="myName" value="Project Default" />
++    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
++      <option name="ignoredErrors">
++        <list>
++          <option value="E303" />
++        </list>
++      </option>
++    </inspection_tool>
++  </profile>
++</component>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1633445999344)
++++ b/.idea/vcs.xml	(date 1633445999344)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file

@@ -29,7 +29,7 @@ class FormatParser(Parser):
             
     
     def get_point(self, t):
-        #t=t.replace(',','     ')
+        t=t.replace(',','     ')
         for row in t.splitlines():
             
             if row.startswith('SS'):
@@ -37,20 +37,20 @@ class FormatParser(Parser):
                 
             
                 
-                desc=row[8:15]
+                desc=row[8:-1].split(',')
                 id='PT'
             
             if row.startswith('SD'): 
                 
-                y=row[8:16].lstrip(',') # Northing
+                y=row[8:22].lstrip(',') # Northing
             
             
                 
-                x=row[16:24].lstrip(',')  # Easting
+                x=row[16:34].lstrip(',')  # Easting
                 
             
                 
-                z=row[24:-1].lstrip(',')# Elevation     
+                z=row[34:-1].lstrip(',')# Elevation     
             
               
         try:    
